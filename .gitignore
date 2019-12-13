@@ -123,6 +123,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.default_venv
+default_venv/
 .env
 .venv
 env/
@@ -160,3 +162,7 @@ API
 Training
 Blog
 About
+
+#IDEA file
+.idea
+idea/
