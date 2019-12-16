@@ -1,7 +1,7 @@
 
 
 from PyQt5.QtWidgets import QMainWindow, QFrame, QGroupBox, QHBoxLayout, QSplitter, \
-                            QVBoxLayout
+                            QVBoxLayout, QPushButton, QSpacerItem, QLabel
 from PyQt5.Qt import Qt
 
 
@@ -16,43 +16,35 @@ class MainAppWin(QMainWindow):
 
         self.resize(1024, 768)
         # главный виджет - рамка, на ней располагаются элементы
-        mainFrame = QFrame()
-        mainFrame.setFrameStyle(0)
-        mainFrame.setFrameShape(QFrame.StyledPanel)
-        self.setCentralWidget(mainFrame)
+        main_frame = QFrame()
+        main_frame.setFrameStyle(0)
+        main_frame.setFrameShape(QFrame.StyledPanel)
+        self.setCentralWidget(main_frame)
 
-        # grpupBox для расположения дерева файлов
-        fileTreeBox = QGroupBox()
-        fileTreeBox.setContentsMargins(0, 0, 0, 0)
+        buttons_frame = QFrame()
+        buttons_frame.setFixedWidth(150)
+        buttons_frame.setFrameStyle(QFrame.StyledPanel)
+        button1 = QPushButton('Кнопка')
+        button2 = QPushButton('Кнопка2')
+        vbox = QVBoxLayout()
+        vbox.addWidget(button1)
+        vbox.addWidget(button2)
+        vbox.addStretch(1)
+        buttons_frame.setLayout(vbox)
 
-        fileTreeBox.setTitle('Файлы процедур')
-        # grpupBox для расположения дерева файлов
-        errMsgBox = QGroupBox()
-        errMsgBox.setTitle('Окно сообщений')
+        display_area_frame = QFrame()
+        display_area_frame.setFrameStyle(QFrame.StyledPanel)
+        v_display_layout = QVBoxLayout()
+        display_label = QLabel('область отображения данных')
+        v_display_layout.addWidget(display_label)
+        display_area_frame.setLayout(v_display_layout)
 
-        hbox = QHBoxLayout()
-        splitter1 = QSplitter(Qt.Horizontal)
-        #splitter1.addWidget(self.tab)
-        # размещаем дерево файлов
-        vboxTree = QVBoxLayout()
-        vboxTree.setContentsMargins(0, 0, 0, 0)
-        #vboxTree.addWidget(self.tree)
-        fileTreeBox.setLayout(vboxTree)
-        #splitter1.addWidget(fileTreeBox)
+        h_main_layout = QHBoxLayout()
+        #h_main_layout.addStretch(0)
+        #h_spacer = QSpacerItem()
 
-        splitter1.setSizes([800, 250])
-        splitter1.setStretchFactor(0, 1)
-        splitter2 = QSplitter(Qt.Vertical)
-        splitter2.addWidget(splitter1)
-        # размещаем окно сообщений
-        hboxMsg = QHBoxLayout()
-        hboxMsg.setContentsMargins(0, 0, 0, 0)
-        #hboxMsg.addWidget(self.msg_browser)
-        errMsgBox.setLayout(hboxMsg)
-        #splitter2.addWidget(errMsgBox)
+        h_main_layout.addWidget(buttons_frame)
+        h_main_layout.addWidget(display_area_frame)
 
-        splitter2.setSizes([800, 50])
-        splitter2.setStretchFactor(0, 1)
-        hbox.addWidget(splitter2)
-        mainFrame.setLayout(hbox)
+        main_frame.setLayout(h_main_layout)
 
