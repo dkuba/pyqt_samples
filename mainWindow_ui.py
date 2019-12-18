@@ -14,6 +14,7 @@ def setup_ui(self):
     process_button.setEnabled(False)
     process_button.clicked.connect(self.process_button_clicked_slot)
     vbox = QVBoxLayout()
+
     vbox.addWidget(open_data_base_button)
     vbox.addWidget(process_button)
     vbox.addStretch(1)
@@ -36,5 +37,6 @@ def setup_ui(self):
     h_main_layout = QHBoxLayout()
     h_main_layout.addWidget(buttons_frame)
     h_main_layout.addWidget(display_area_frame)
+
 
     main_frame.setLayout(h_main_layout)
