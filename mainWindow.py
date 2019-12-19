@@ -17,6 +17,5 @@ class MainAppWin(QMainWindow):
     def process_button_clicked_slot(self):
         pass
 
-    def open_data_base_button_clicked_clot(self):
-        print('Кнопка нажата')
-        self.display_label.setText('Кнопка нажата')
+    def open_data_base_button_clicked_slot(self):
+        pass
