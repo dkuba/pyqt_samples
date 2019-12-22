@@ -2,13 +2,7 @@
 from PyQt5.QtWidgets import QFrame, QGroupBox, QHBoxLayout, QSplitter, \
                             QVBoxLayout, QPushButton, QSpacerItem, QLabel
 
-from PyQt5 import QtCore
-
-from pyqtgraph import PlotWidget, plot
-import pyqtgraph.opengl as gl
-
-import pyqtgraph as pg
-
+from Charts import PlotCanvas
 
 def setup_ui(self):
     # кнопки на левой боковой панели
@@ -32,24 +26,9 @@ def setup_ui(self):
     display_area_frame = QFrame()
     display_area_frame.setFrameStyle(QFrame.StyledPanel)
     # график
-    graph_view = gl.GLViewWidget()
+    graph_view = PlotCanvas(self)
 
-    # create three grids, add each to the view
-    xgrid = gl.GLGridItem()
-    ygrid = gl.GLGridItem()
-    zgrid = gl.GLGridItem()
-    graph_view.addItem(xgrid)
-    graph_view.addItem(ygrid)
-    graph_view.addItem(zgrid)
 
-    # rotate x and y grids to face the correct direction
-    xgrid.rotate(90, 0, 1, 0)
-    ygrid.rotate(90, 1, 0, 0)
-
-    # scale each grid differently
-    xgrid.scale(0.2, 0.1, 0.1)
-    ygrid.scale(0.2, 0.1, 0.1)
-    zgrid.scale(0.1, 0.2, 0.1)
 
     # рамка таблицы
     table_frame = QFrame()
@@ -69,6 +48,5 @@ def setup_ui(self):
     h_main_layout = QHBoxLayout()
     h_main_layout.addWidget(buttons_frame)
     h_main_layout.addWidget(display_area_frame)
-
 
     main_frame.setLayout(h_main_layout)
