@@ -26,7 +26,7 @@ class PlotCanvas(FigureCanvas):
         self.plot()
 
     def plot(self):
-        x = np.linspace(0, 1, 5)
+        x = np.linspace(0, 1, 20)
         X, Y = np.meshgrid(x, x)
 
         #Z = np.sin(X*Y)
