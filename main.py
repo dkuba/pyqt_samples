@@ -9,6 +9,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     QApplication.setStyle(QStyleFactory.create('Fusion'))
     app.setStyleSheet(str(qssStr)) FROM FORKED PROJECT
+    app.setStyleSheet(str(qssStr))
     myGUI = MainAppWin()
     myGUI.show()
     sys.exit(app.exec_())
