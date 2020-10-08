@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
     app = QApplication(sys.argv)
     QApplication.setStyle(QStyleFactory.create('Fusion'))
-    #comment from forker 4
+    #comment from author
     myGUI = MainAppWin()
     myGUI.show()
     sys.exit(app.exec_())
