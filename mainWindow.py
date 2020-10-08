@@ -10,7 +10,7 @@ class MainAppWin(QMainWindow):
 
     def __init__(self, *args):
         super(QMainWindow, self).__init__(*args)
-
+        #comment from forker
         self.resize(1024, 768)
         mainWindow_ui.setup_ui(self)
 
